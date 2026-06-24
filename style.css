@@ -27,8 +27,8 @@
   --color-red-light:       var(--color-gold-light);
 
   /* Backgrounds */
-  --color-bg-light: #F9F8F5;       /* Warm Ivory Canvas */
-  --color-bg-white: #FFFFFF;
+  --color-bg-light: rgba(249, 248, 245, 0.4);       /* Warm Semi-Transparent Ivory */
+  --color-bg-white: rgba(255, 255, 255, 0.35);      /* Highly Semi-Transparent White */
 
   /* Grays */
   --color-gray-dark: #4a4a4a;
@@ -492,7 +492,7 @@ button, input, select, textarea {
 
 /* Page Section: Services */
 .services-section {
-  background-color: var(--color-bg-white);
+  background-color: transparent;
 }
 
 /* Interactive Tabs for Services */
@@ -635,7 +635,7 @@ button, input, select, textarea {
 
 /* Page Section: Gallery / Theme Portfolio */
 .gallery-section {
-  background-color: var(--color-bg-light);
+  background-color: transparent;
 }
 
 .gallery-filter-bar {
@@ -820,7 +820,7 @@ button, input, select, textarea {
 
 /* Page Section: About Us */
 .about-section {
-  background-color: var(--color-bg-white);
+  background-color: transparent;
 }
 
 .about-image-grid {
@@ -918,7 +918,7 @@ button, input, select, textarea {
 
 /* Page Section: Contact & Reach Us */
 .contact-section {
-  background-color: var(--color-bg-light);
+  background-color: transparent;
 }
 
 .contact-card-wrapper {
@@ -1456,6 +1456,212 @@ textarea.form-control {
   background-color: var(--color-gold-deep);
   border-color: var(--color-gold-deep);
   color: var(--color-bg-white);
+}
+
+/* ============================================================
+   BACKGROUND DESIGN SYSTEM — Royal Gold Printing Theme
+   Subtle, elegant background patterns inspired by:
+   • Traditional Indian wedding printing motifs
+   • Letterpress decorative ornaments
+   • Paisley & floral mandala patterns
+   ============================================================ */
+
+/* --- Global Body Background Template (Premium Luxury Printing Press Image + Gradient) --- */
+body {
+  background-image: 
+    linear-gradient(rgba(249, 248, 255, 0.92), rgba(249, 248, 255, 0.92)),
+    url('luxury_press_bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* --- Section Background Variants --- */
+
+/* Light sections get soft ivory + pattern overlaying the main background */
+.gallery-section,
+.hero-section {
+  background-image:
+    linear-gradient(rgba(249, 248, 255, 0.88), rgba(249, 248, 255, 0.88)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.35' opacity='0.10'%3E%3Ccircle cx='30' cy='30' r='18'/%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Cline x1='30' y1='12' x2='30' y2='4'/%3E%3Cline x1='30' y1='48' x2='30' y2='56'/%3E%3Cline x1='12' y1='30' x2='4' y2='30'/%3E%3Cline x1='48' y1='30' x2='56' y2='30'/%3E%3Cline x1='17' y1='17' x2='11' y2='11'/%3E%3Cline x1='43' y1='17' x2='49' y2='11'/%3E%3Cline x1='17' y1='43' x2='11' y2='49'/%3E%3Cline x1='43' y1='43' x2='49' y2='49'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover, 60px 60px;
+}
+
+/* White sections: very subtle diagonal line weave overlay */
+.services-section,
+.about-section,
+.contact-section {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.90)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.3' opacity='0.07'%3E%3Cline x1='0' y1='40' x2='40' y2='0'/%3E%3Cline x1='-10' y1='30' x2='30' y2='-10'/%3E%3Cline x1='10' y1='50' x2='50' y2='10'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover, 40px 40px;
+}
+
+/* --- Decorative Corner Ornaments --- */
+/* Applied to sections via ::before / ::after pseudo-elements */
+
+.hero-section::before,
+.hero-section::after,
+.gallery-section::before,
+.gallery-section::after {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='1' opacity='0.18'%3E%3C!-- Outer arc --%3E%3Cpath d='M0 0 Q80 0 160 80'/%3E%3Cpath d='M0 0 Q0 80 80 160'/%3E%3C!-- Inner arc --%3E%3Cpath d='M0 0 Q50 0 100 50'/%3E%3Cpath d='M0 0 Q0 50 50 100'/%3E%3C!-- Smallest arc --%3E%3Cpath d='M0 0 Q25 0 50 25'/%3E%3Cpath d='M0 0 Q0 25 25 50'/%3E%3C!-- Dot ornament --%3E%3Ccircle cx='15' cy='15' r='3' fill='%23C9A84C'/%3E%3Ccircle cx='35' cy='10' r='2' fill='%23C9A84C'/%3E%3Ccircle cx='10' cy='35' r='2' fill='%23C9A84C'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section::before,
+.gallery-section::before {
+  top: 0;
+  left: 0;
+}
+
+.hero-section::after,
+.gallery-section::after {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* Make sure hero and gallery content stays above pseudo-elements */
+.hero-section > *,
+.gallery-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Floating Mandala Ring Decorators --- */
+/* These are decorative CSS shapes scattered in key sections */
+
+.services-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.10);
+  box-shadow:
+    inset 0 0 0 20px rgba(201, 168, 76, 0.04),
+    inset 0 0 0 60px rgba(201, 168, 76, 0.03),
+    inset 0 0 0 120px rgba(201, 168, 76, 0.02);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  box-shadow:
+    inset 0 0 0 30px rgba(201, 168, 76, 0.04),
+    inset 0 0 0 80px rgba(201, 168, 76, 0.02);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* About section floating ornament */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-section::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 140px;
+  height: 140px;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact section ornament */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.10);
+  box-shadow: inset 0 0 0 40px rgba(201, 168, 76, 0.04);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Footer Background — Deep Black + Fine Gold Grid --- */
+.site-footer {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.3' opacity='0.08'%3E%3Crect x='10' y='10' width='30' height='30'/%3E%3Ccircle cx='25' cy='25' r='10'/%3E%3Cline x1='25' y1='10' x2='25' y2='0'/%3E%3Cline x1='25' y1='40' x2='25' y2='50'/%3E%3Cline x1='10' y1='25' x2='0' y2='25'/%3E%3Cline x1='40' y1='25' x2='50' y2='25'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 50px 50px;
+}
+
+/* --- CTA Dark Section — Scattered star/sparkle motifs --- */
+section[style*="background-color: var(--color-black)"] {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23C9A84C' opacity='0.08'%3E%3Cpolygon points='50,5 52,45 95,50 52,55 50,95 48,55 5,50 48,45' /%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+/* --- Value Highlights Section (light) --- */
+section.scroll-reveal {
+  position: relative;
 }
 
 /* Mobile responsive menu overlays */
