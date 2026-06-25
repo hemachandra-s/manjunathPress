@@ -38,17 +38,21 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-section" style="position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; background-image: url('wedding_hero_bg.png'); background-size: cover; background-position: center; padding-top: 80px;">
-    <!-- Dark overlay -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+  <section class="hero-section" style="position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: 80px;">
+    <!-- Background Slider Container -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+      <div class="bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('wedding_hero_bg.png'); background-size: cover; background-position: center; transition: opacity 2s ease-in-out; opacity: 1;"></div>
+      <div class="bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('foil_stamping_hero.png'); background-size: cover; background-position: center; transition: opacity 2s ease-in-out; opacity: 0;"></div>
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
+    </div>
     
     <div class="container" style="position: relative; z-index: 2; text-align: center; color: #fff;">
       <div class="animate-slide-up" style="max-width: 900px; margin: 0 auto;">
-        <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1.5rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3); color: #fff;">
-          Premium Wedding Cards & Printing Solutions
+        <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          Premium Wedding Cards &amp; Printing Solutions
         </h1>
         <p style="font-size: clamp(1.1rem, 2vw, 1.5rem); color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: 2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-          Custom Wedding Invitations, Bill Books, Diaries, Calendars & Commercial Printing
+          Custom Wedding Invitations, Bill Books, Diaries, Calendars &amp; Commercial Printing
         </p>
         <a href="#services-tabs" class="btn-cta" style="background-color: var(--color-gold); color: #fff; border: none; padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 4px; box-shadow: 0 4px 15px rgba(201, 168, 76, 0.4); text-decoration: none; display: inline-block; transition: all 0.3s ease;">
           Explore Collection
@@ -57,15 +61,23 @@
     </div>
   </section>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let slides = document.querySelectorAll('.bg-slide');
+      let currentSlide = 0;
+      setInterval(() => {
+        slides[currentSlide].style.opacity = '0';
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.opacity = '1';
+      }, 5000);
+    });
+  </script>
+
   <!-- Interactive Services Tabs -->
   <section id="services-tabs" class="section-padding services-section scroll-reveal">
     <div class="container">
       <div class="services-tabs">
         <button class="tab-btn active" data-tab="tab-foil">Foil Stamping</button>
-        <button class="tab-btn" data-tab="tab-screen">Screen Printing</button>
-        <button class="tab-btn" data-tab="tab-letterpress">Letterpress</button>
-        <button class="tab-btn" data-tab="tab-digital">Digital Print</button>
-        <button class="tab-btn" data-tab="tab-offset">Offset Print</button>
         <button class="tab-btn" onclick="window.location.href='wedding-cards.html'">Wedding Cards</button>
       </div>
 
@@ -91,20 +103,7 @@
             </div>
           </div>
           <div class="service-tab-image">
-            <svg width="100%" height="100%" viewBox="0 0 450 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color: #111111;">
-              <!-- Simulation of foil stamp card -->
-              <rect x="50" y="80" width="350" height="320" rx="6" fill="#1c1c1c" stroke="#C9A84C" stroke-width="1.5" />
-              <rect x="65" y="95" width="320" height="290" rx="3" stroke="#D4AF37" stroke-width="1.5" />
-              <!-- Leaf graphics in gold foil -->
-              <path d="M 225 150 C 210 170, 210 200, 225 220 C 240 200, 240 170, 225 150 Z" fill="#D4AF37" opacity="0.85"/>
-              <path d="M 195 190 C 180 200, 180 220, 195 230 C 210 220, 210 200, 195 190 Z" fill="#D4AF37" opacity="0.85" transform="rotate(-30 195 210)"/>
-              <path d="M 255 190 C 240 200, 240 220, 255 230 C 270 220, 270 200, 255 190 Z" fill="#D4AF37" opacity="0.85" transform="rotate(30 255 210)"/>
-              
-              <!-- Hot plate pressing indicator -->
-              <line x1="225" y1="50" x2="225" y2="120" stroke="#C9A84C" stroke-width="2" stroke-dasharray="4 4" />
-              <text x="225" y="320" font-family="'Playfair Display', serif" font-size="20" fill="#D4AF37" text-anchor="middle" letter-spacing="2">GOLD FOIL PRESS</text>
-              <text x="225" y="350" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#888888" text-anchor="middle" letter-spacing="3">THERMAL EMBOSSING METHOD</text>
-            </svg>
+            <img src="manjunath_press_foil.png" alt="Manjunath Press Foil Stamping" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
           </div>
         </div>
 
