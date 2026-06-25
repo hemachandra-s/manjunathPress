@@ -1705,3 +1705,117 @@ section.scroll-reveal {
     transform: translateY(-7px) rotate(-45deg);
   }
 }
+
+/* Catalog Card Styles */
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+}
+.image-gallery {
+  position: relative;
+  width: 100%;
+}
+.image-views {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+.image-views .view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.image-views .view.active {
+  opacity: 1;
+}
+.gallery-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  background: rgba(255,255,255,0.9);
+  padding: 5px;
+  border-radius: 20px;
+}
+.gallery-controls .control-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: var(--color-gray-dark);
+}
+.gallery-controls .control-btn.active {
+  background: var(--color-gold);
+  color: #fff;
+}
+.product-dimensions {
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.order-btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem;
+  margin-top: auto;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-content {
+  background: var(--color-bg-white);
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  padding: 2.5rem;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-gray-dark);
+}
+.modal-close:hover {
+  color: var(--color-black);
+}

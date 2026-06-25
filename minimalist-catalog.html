@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore our minimalist wedding invitation collection. View inside and outside details, dimensions, and request a custom quote.">
+  <title>Modern Minimalist Collection | Manjunath Press</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        MANJUNATH PRESS<span>.</span>
+      </a>
+      
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-cta">Get A Quote</a>
+      </div>
+
+      <div class="menu-toggle" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="position: relative; width: 100%; height: 50vh; display: flex; align-items: center; justify-content: center; background-image: url('wedding_hero_bg.png'); background-size: cover; background-position: center; padding-top: 80px;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+    
+    <div class="container" style="position: relative; z-index: 2; text-align: center; color: #fff;">
+      <div class="animate-slide-up" style="max-width: 900px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          Modern Minimalist Collection
+        </h1>
+        <p style="font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255, 255, 255, 0.9); line-height: 1.6; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+          Clean typography, deep letterpress, and premium cotton paper.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section-padding scroll-reveal" style="background-color: var(--color-bg-light);">
+    <div class="container">
+      
+      <div class="product-grid" id="catalog-grid">
+        <!-- Products will be injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Order/Inquiry Modal -->
+  <div id="order-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-header">
+        <h3 id="modal-product-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem;">Product Title</h3>
+        <p style="color: var(--color-gray-dark); font-size: 0.95rem;">Customize your dimensions and quantity.</p>
+      </div>
+
+      <form id="order-form" class="order-form">
+        <input type="hidden" id="product-id" name="product-id">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quantity">Quantity (Number of Cards)</label>
+            <input type="number" id="quantity" name="quantity" min="50" step="10" placeholder="e.g. 150" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="length">Length (inches)</label>
+            <input type="number" id="length" name="length" min="3" step="0.5" placeholder="e.g. 7" required>
+          </div>
+          <div class="form-group">
+            <label for="breadth">Breadth (inches)</label>
+            <input type="number" id="breadth" name="breadth" min="3" step="0.5" placeholder="e.g. 5" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customer-name">Full Name</label>
+            <input type="text" id="customer-name" name="customer-name" placeholder="Jane Doe" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customer-email">Email Address</label>
+            <input type="email" id="customer-email" name="customer-email" placeholder="jane@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 1rem;">
+          <button type="submit" class="btn-cta" style="width: 100%; border: none; font-size: 1.1rem; padding: 1rem;">Submit Inquiry</button>
+        </div>
+        
+        <div id="form-success" style="display: none; color: #2e7d32; padding: 1rem; background: #e8f5e9; border-radius: 4px; margin-top: 1rem; text-align: center; border: 1px solid #c8e6c9;">
+          Thank you! Your inquiry has been received. We will contact you shortly.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="margin-top: 0; padding-top: 2rem; border-top: none;">
+      <p>&copy; 2026 Manjunath Press. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  
+  <!-- Catalog Specific JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const catalogGrid = document.getElementById('catalog-grid');
+      
+      // Generate 10 products
+      const products = Array.from({length: 10}, (_, i) => ({
+        id: `min-00${i+1}`,
+        title: `Minimalist Suite 00${i+1}`,
+        desc: "Elegant cotton paper with deep letterpress impression.",
+        length: 7,
+        breadth: 5,
+        imgOutside: 'minimalist_wedding_card_1782368953915.png',
+        imgInside: 'minimalist_wedding_card_1782368953915.png' // Reusing image for placeholder
+      }));
+
+      // Render products
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card catalog-card';
+        card.innerHTML = `
+          <div class="image-gallery">
+            <div class="image-views">
+              <img src="${product.imgOutside}" class="view active" data-view="outside" alt="${product.title} Outside">
+              <img src="${product.imgInside}" class="view" data-view="inside" alt="${product.title} Inside" style="filter: brightness(0.85);">
+            </div>
+            <div class="gallery-controls">
+              <button class="control-btn active" onclick="switchView(this, 'outside')">Outside</button>
+              <button class="control-btn" onclick="switchView(this, 'inside')">Inside</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">${product.title}</h3>
+            <p class="product-dimensions">Standard Size: ${product.length}" x ${product.breadth}"</p>
+            <p class="product-desc">${product.desc}</p>
+            <button class="btn-cta order-btn" onclick="openOrderModal('${product.id}', '${product.title}', ${product.length}, ${product.breadth})">Customize & Order</button>
+          </div>
+        `;
+        catalogGrid.appendChild(card);
+      });
+
+      // Modal Logic
+      const modal = document.getElementById('order-modal');
+      const closeBtn = document.querySelector('.modal-close');
+      const form = document.getElementById('order-form');
+
+      window.openOrderModal = (id, title, defaultLen, defaultBreadth) => {
+        document.getElementById('modal-product-title').innerText = 'Order: ' + title;
+        document.getElementById('product-id').value = id;
+        document.getElementById('length').value = defaultLen;
+        document.getElementById('breadth').value = defaultBreadth;
+        document.getElementById('form-success').style.display = 'none';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      };
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Here you would typically send data to a server
+        document.getElementById('form-success').style.display = 'block';
+        setTimeout(() => {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+          form.reset();
+        }, 2500);
+      });
+      
+      // Image Switcher Logic
+      window.switchView = (btn, viewType) => {
+        const gallery = btn.closest('.image-gallery');
+        
+        // Update Buttons
+        gallery.querySelectorAll('.control-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Update Images
+        gallery.querySelectorAll('.view').forEach(img => {
+          img.classList.remove('active');
+          if(img.dataset.view === viewType) {
+            img.classList.add('active');
+          }
+        });
+      };
+    });
+  </script>
+</body>
+</html>
