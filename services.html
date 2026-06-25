@@ -46,8 +46,10 @@
       <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
     </div>
     
-    <div class="container" style="position: relative; z-index: 2; text-align: center; color: #fff;">
-      <div class="animate-slide-up" style="max-width: 900px; margin: 0 auto;">
+    <div class="container" style="position: relative; z-index: 2; text-align: center; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 300px;">
+      
+      <!-- Slide 1 Text -->
+      <div class="text-slide animate-slide-up" style="max-width: 900px; position: absolute; transition: opacity 1s ease-in-out; opacity: 1;">
         <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">
           Premium Wedding Cards &amp; Printing Solutions
         </h1>
@@ -58,17 +60,37 @@
           Explore Collection
         </a>
       </div>
+
+      <!-- Slide 2 Text -->
+      <div class="text-slide animate-slide-up" style="max-width: 900px; position: absolute; transition: opacity 1s ease-in-out; opacity: 0; pointer-events: none;">
+        <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          Luxury Metallic Foil Stamping
+        </h1>
+        <p style="font-size: clamp(1.1rem, 2vw, 1.5rem); color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: 2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+          Make a lasting impression with our premium gold, silver, and rose gold thermal foil embossing
+        </p>
+        <a href="#services-tabs" class="btn-cta" style="background-color: var(--color-gold); color: #fff; border: none; padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 4px; box-shadow: 0 4px 15px rgba(201, 168, 76, 0.4); text-decoration: none; display: inline-block; transition: all 0.3s ease; pointer-events: auto;">
+          View Foil Details
+        </a>
+      </div>
     </div>
   </section>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      let slides = document.querySelectorAll('.bg-slide');
+      let bgSlides = document.querySelectorAll('.bg-slide');
+      let textSlides = document.querySelectorAll('.text-slide');
       let currentSlide = 0;
       setInterval(() => {
-        slides[currentSlide].style.opacity = '0';
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].style.opacity = '1';
+        bgSlides[currentSlide].style.opacity = '0';
+        textSlides[currentSlide].style.opacity = '0';
+        textSlides[currentSlide].style.pointerEvents = 'none';
+        
+        currentSlide = (currentSlide + 1) % bgSlides.length;
+        
+        bgSlides[currentSlide].style.opacity = '1';
+        textSlides[currentSlide].style.opacity = '1';
+        textSlides[currentSlide].style.pointerEvents = 'auto';
       }, 5000);
     });
   </script>
