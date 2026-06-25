@@ -6,7 +6,28 @@
   <meta name="description" content="Explore our minimalist wedding invitation collection. View inside and outside details, dimensions, and request a custom quote.">
   <title>Modern Minimalist Collection | Manjunath Press</title>
   <link rel="stylesheet" href="style.css">
-</head>
+  <style>
+    /* Force modal styles to bypass cache */
+    .modal-content {
+      background-color: #ffffff !important;
+      opacity: 1 !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3) !important;
+    }
+    .order-form input {
+      background-color: #ffffff !important;
+      border: 1px solid #ccc !important;
+      padding: 10px !important;
+      border-radius: 4px !important;
+      color: #000 !important;
+    }
+    .order-form label {
+      color: #000 !important;
+      font-weight: bold !important;
+    }
+    .modal-header h3, .modal-header p {
+      color: #000 !important;
+    }
+  </style></head>
 <body>
 
   <!-- Header Navigation -->
@@ -65,12 +86,12 @@
 
   <!-- Order/Inquiry Modal -->
   <div id="order-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div class="modal-content" style="background-color: #ffffff !important; opacity: 1 !important; box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important;">
+      <button class="modal-close" aria-label="Close modal" style="color: #000;">&times;</button>
       
       <div class="modal-header">
-        <h3 id="modal-product-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem;">Product Title</h3>
-        <p style="color: var(--color-gray-dark); font-size: 0.95rem;">Customize your dimensions and quantity.</p>
+        <h3 id="modal-product-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; color: #000;">Product Title</h3>
+        <p style="color: #333; font-size: 0.95rem;">Customize your dimensions and quantity.</p>
       </div>
 
       <form id="order-form" class="order-form">
@@ -78,33 +99,33 @@
         
         <div class="form-row">
           <div class="form-group">
-            <label for="quantity">Quantity (Number of Cards)</label>
-            <input type="number" id="quantity" name="quantity" min="50" step="10" placeholder="e.g. 150" required>
+            <label for="quantity" style="color: #000; font-weight: bold;">Quantity (Number of Cards)</label>
+            <input type="number" id="quantity" name="quantity" min="50" step="10" placeholder="e.g. 150" required style="background-color: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 4px; color: #000; width: 100%; box-sizing: border-box; margin-top: 5px;">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="length">Length (inches)</label>
-            <input type="number" id="length" name="length" min="3" step="0.5" placeholder="e.g. 7" required>
+            <label for="length" style="color: #000; font-weight: bold;">Length (inches)</label>
+            <input type="number" id="length" name="length" min="3" step="0.5" placeholder="e.g. 7" required style="background-color: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 4px; color: #000; width: 100%; box-sizing: border-box; margin-top: 5px;">
           </div>
           <div class="form-group">
-            <label for="breadth">Breadth (inches)</label>
-            <input type="number" id="breadth" name="breadth" min="3" step="0.5" placeholder="e.g. 5" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="customer-name">Full Name</label>
-            <input type="text" id="customer-name" name="customer-name" placeholder="Jane Doe" required>
+            <label for="breadth" style="color: #000; font-weight: bold;">Breadth (inches)</label>
+            <input type="number" id="breadth" name="breadth" min="3" step="0.5" placeholder="e.g. 5" required style="background-color: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 4px; color: #000; width: 100%; box-sizing: border-box; margin-top: 5px;">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="customer-email">Email Address</label>
-            <input type="email" id="customer-email" name="customer-email" placeholder="jane@example.com" required>
+            <label for="customer-name" style="color: #000; font-weight: bold;">Full Name</label>
+            <input type="text" id="customer-name" name="customer-name" placeholder="Jane Doe" required style="background-color: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 4px; color: #000; width: 100%; box-sizing: border-box; margin-top: 5px;">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customer-email" style="color: #000; font-weight: bold;">Email Address</label>
+            <input type="email" id="customer-email" name="customer-email" placeholder="jane@example.com" required style="background-color: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 4px; color: #000; width: 100%; box-sizing: border-box; margin-top: 5px;">
           </div>
         </div>
 
@@ -198,13 +219,14 @@
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Here you would typically send data to a server
-        document.getElementById('form-success').style.display = 'block';
-        setTimeout(() => {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-          form.reset();
-        }, 2500);
+        const productId = document.getElementById('product-id').value;
+        const qty = document.getElementById('quantity').value;
+        const len = document.getElementById('length').value;
+        const breadth = document.getElementById('breadth').value;
+        
+        // Redirect directly to the contact page with custom parameters
+        const url = `contact.html?product=${productId}&quantity=${qty}&length=${len}&breadth=${breadth}`;
+        window.location.href = url;
       });
       
       // Image Switcher Logic

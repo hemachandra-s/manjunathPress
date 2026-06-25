@@ -1792,7 +1792,7 @@ section.scroll-reveal {
   pointer-events: auto;
 }
 .modal-content {
-  background: var(--color-bg-white);
+  background: #ffffff;
   width: 90%;
   max-width: 500px;
   border-radius: 8px;
@@ -1802,6 +1802,7 @@ section.scroll-reveal {
   transition: transform 0.3s ease;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.2);
 }
 .modal-overlay.active .modal-content {
   transform: translateY(0);
@@ -1817,5 +1818,25 @@ section.scroll-reveal {
   color: var(--color-gray-dark);
 }
 .modal-close:hover {
+  color: var(--color-black);
+}
+.order-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+.order-form input:focus {
+  border-color: var(--color-gold);
+  outline: none;
+}
+.order-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--color-black);
 }
